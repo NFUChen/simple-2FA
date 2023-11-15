@@ -2,6 +2,7 @@ from threading import Thread
 import random
 import string
 import time
+from typing import Dict, Union
 
 class TwoFactorAuth:
     def __init__(self) -> None:
@@ -32,7 +33,7 @@ class TwoFactorAuth:
         thread = Thread(target=wrapper)
         thread.start()
 
-    def to_dict(self) -> dict[str, str | int]:
+    def to_dict(self) -> Dict[str, Union[str, int]]:
         data_dict = self.__dict__
         data_dict["progress"] = int(self.progress)
         return data_dict
